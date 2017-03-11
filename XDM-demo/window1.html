@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">发送</button>
+    <iframe src="http://localhost:63342/XDM-demo/window2.html"></iframe>
+    <script>
+        var btn=document.getElementById("btn");
+        btn.onclick=function () {
+           window.frames[0].postMessage("hello window2!","http://localhost:63342/XDM-demo/window2.html");
+        };
+        window.addEventListener("message",function (e) {
+            alert(e.data);
+        },false)
+    </script>
+</body>
+</html>
